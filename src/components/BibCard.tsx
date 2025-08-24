@@ -72,7 +72,7 @@ export const BibCard: React.FC<BibCardProps> = ({
       <div className="hole-punch hole-bottom-right" />
       
       {/* Event Header */}
-      <header className="text-center p-4 bg-white/90 rounded-lg shadow-md backdrop-blur-sm z-10">
+      <header className="text-center p-4 bg-white/90 rounded-lg shadow-md backdrop-blur-sm z-10" style={{ marginTop: '1cm' }}>
         <h1 className="text-xl font-bold mb-2 text-gray-900">
           {participant.eventName}
         </h1>
