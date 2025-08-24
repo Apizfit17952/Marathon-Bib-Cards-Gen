@@ -227,6 +227,10 @@ const Index = () => {
             </div>
           </div>
         )}
+        {/* Footer */}
+        <footer className="mt-12 text-center text-white/80 text-sm">
+          © APIZFIT6007 2025
+        </footer>
       </div>
     </div>
   );
