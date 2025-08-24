@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 259 89% 65%;
+    --primary-foreground: 210 40% 98%;
+    
+    --primary-glow: 280 100% 80%;
+    
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+    
+    /* BIB Theme Colors */
+    --theme-red: 14 100% 57%;
+    --theme-red-dark: 14 85% 45%;
+    --theme-blue: 245 58% 51%;
+    --theme-blue-dark: 245 70% 40%;
+    --theme-green: 168 76% 36%;
+    --theme-green-dark: 168 85% 28%;
+    --theme-orange: 24 100% 50%;
+    --theme-orange-dark: 24 95% 40%;
+    --theme-purple: 259 46% 52%;
+    --theme-purple-dark: 259 55% 40%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(259 89% 65%), hsl(280 100% 80%));
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-hero);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .bib-card {
+    @apply relative overflow-hidden rounded-3xl shadow-lg;
+    width: 210mm;
+    height: 148mm;
+    transition: var(--transition-spring);
+  }
+  
+  .bib-card:hover {
+    @apply shadow-2xl;
+    transform: translateY(-4px) scale(1.01);
+  }
+  
+  .bib-card-preview {
+    transform: scale(0.32);
+    transform-origin: top left;
+    margin: 0 !important;
+  }
+  
+  .theme-red {
+    background: linear-gradient(135deg, hsl(var(--theme-red)), hsl(var(--theme-red-dark)));
+  }
+  
+  .theme-blue {
+    background: linear-gradient(135deg, hsl(var(--theme-blue)), hsl(var(--theme-blue-dark)));
+  }
+  
+  .theme-green {
+    background: linear-gradient(135deg, hsl(var(--theme-green)), hsl(var(--theme-green-dark)));
+  }
+  
+  .theme-orange {
+    background: linear-gradient(135deg, hsl(var(--theme-orange)), hsl(var(--theme-orange-dark)));
+  }
+  
+  .theme-purple {
+    background: linear-gradient(135deg, hsl(var(--theme-purple)), hsl(var(--theme-purple-dark)));
+  }
+  
+  .theme-transparent {
+    background: transparent !important;
+  }
+  
+  .no-bg .bib-card,
+  .no-bg .theme-red,
+  .no-bg .theme-blue,
+  .no-bg .theme-green,
+  .no-bg .theme-orange,
+  .no-bg .theme-purple,
+  .no-bg .theme-transparent {
+    background: transparent !important;
+  }
+  
+  .no-bg .bib-card::before,
+  .no-bg .bib-card::after {
+    display: none !important;
+  }
+  
+  /* Completely transparent export - remove ALL backgrounds */
+  .fully-transparent,
+  .fully-transparent .bib-card,
+  .fully-transparent .theme-red,
+  .fully-transparent .theme-blue,
+  .fully-transparent .theme-green,
+  .fully-transparent .theme-orange,
+  .fully-transparent .theme-purple,
+  .fully-transparent .theme-transparent {
+    background: transparent !important;
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+  
+  .fully-transparent .bib-card::before,
+  .fully-transparent .bib-card::after {
+    display: none !important;
+  }
+  
+  .hole-punch {
+    @apply absolute bg-white border-2 border-gray-300 rounded-full;
+    width: 18px;
+    height: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    z-index: 20;
+  }
+  
+  .hole-top-left { top: 8px; left: 8px; }
+  .hole-top-right { top: 8px; right: 8px; }
+  .hole-bottom-left { bottom: 8px; left: 8px; }
+  .hole-bottom-right { bottom: 8px; right: 8px; }
+}
